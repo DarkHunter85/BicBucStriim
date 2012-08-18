@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+<section class="tag_detail row">
+	<header>
+		<h1>{{page.glob.langa.booksbytag}} "{{ tag.name }}":</h1>
+	</header>
+	<ul data-role="listview">
+		{% for book in books %}
+		<li>
+			<a href="{{page.rot}}/titles/{{book.id}}">
+				<img src="{{page.rot}}/titles/{{ book.id }}/thumbnail" />
+				<h3>{{ book.sort }} ({{ book.pubdate|date("Y") }})</h3>
+  			<p>{{book.author_sort}}</p>
+			</a>
+		</li>
+		{% endfor %}	
+	</ul>
+</section>
+
+{% endblock %}
